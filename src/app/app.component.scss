@@ -1,0 +1,15 @@
+#my-iframe {
+  position: absolute;
+  height: 70%;
+  width: 1080px;
+  //   margin-bottom: 200px;
+  overflow: hidden;
+  //   padding-bottom: -100px;
+}
+
+@media screen and (max-width: 767px) {
+  #my-iframe {
+    height: 60%;
+    width: 80%;
+  }
+}
