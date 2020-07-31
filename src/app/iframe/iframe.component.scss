@@ -1,0 +1,49 @@
+#my-iframe {
+  // position: absolute;
+  height: 100vh;
+  width: 100%;
+  // margin-left: 90px;
+  //   margin-bottom: 200px;
+  overflow: hidden;
+  //   padding-bottom: -100px;
+}
+nav img {
+  height: 50px;
+  margin-left: 60px;
+}
+button {
+  outline: none;
+}
+
+ol {
+  margin-top: 80px;
+  margin-right: 10px;
+}
+
+li {
+  color: white;
+
+  font-size: 20px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+li:hover {
+  color: wheat;
+}
+
+@media screen and (max-width: 767px) {
+  nav img {
+    height: 30px;
+    margin-left: -100px;
+    margin-top: -50px;
+  }
+  nav div {
+    height: 30px;
+    font-size: 13px;
+    margin-top: -40px;
+    margin-right: -5px;
+  }
+  li {
+    font-size: medium;
+  }
+}

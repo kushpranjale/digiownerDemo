@@ -1,0 +1,67 @@
+<div *ngIf="!available">
+  <h1>{{ message }}</h1>
+</div>
+<div id="page-content" *ngIf="available">
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav
+      #sidenav
+      [mode]="mod"
+      [(opened)]="open"
+      style="background: #007b5e;"
+    >
+      <ol>
+        <li *ngFor="let item of urls" (click)="onClick(item.site_url)">
+          {{ item.site_area }}
+        </li>
+      </ol>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <!-- <mat-toolbar
+        class="mat-elevation-z10"
+        style="width: 100% !important;"
+        color="primary"
+      >
+        <p *ngIf="menue" style="text-align: end; color: white; font-size: 60px;">
+          <button mat-button (click)="sidenav.toggle()">
+            <mat-icon>menue</mat-icon>
+          </button>
+        </p>
+  
+        Dashboard
+        <span class="spacer"> </span>
+  
+        
+      </mat-toolbar> -->
+      <nav
+        class="navbar navbar-dark bg-dark mb-3 mat-elevation-z10"
+        style="background-color: #007b5e !important;"
+      >
+        <p
+          *ngIf="menue"
+          style="text-align: end; color: white; font-size: 60px;"
+        >
+          <button mat-button (click)="sidenav.toggle()">
+            <mat-icon>menue</mat-icon>
+          </button>
+        </p>
+        <!-- <a class="navbar-brand" href="#">DigiOwner</a> -->
+        <img src="assets/digiowner_log.png" alt="" />
+        <div style="color: white;">
+          Contact No. : 9302185966 <br />
+          Email Id: sales@digiowner.com
+        </div>
+      </nav>
+      <div>
+        <iframe
+          scrolling="no"
+          allow="fullscreen"
+          [src]="site_url | safe_url"
+          id="my-iframe"
+        ></iframe>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+<app-footer></app-footer>
