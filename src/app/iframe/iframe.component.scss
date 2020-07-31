@@ -30,7 +30,10 @@ li {
 li:hover {
   color: wheat;
 }
-
+mat-sidenav img {
+  height: 30px;
+  margin-top: 25px;
+}
 @media screen and (max-width: 767px) {
   nav img {
     height: 30px;
@@ -42,6 +45,9 @@ li:hover {
     font-size: 13px;
     margin-top: -40px;
     margin-right: -5px;
+  }
+  ol {
+    margin-top: 20px;
   }
   li {
     font-size: medium;

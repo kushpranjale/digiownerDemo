@@ -12,9 +12,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { SafePipeComponent } from './safe-pipe/safe-pipe.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, IframeComponent, SafePipeComponent],
+  declarations: [
+    AppComponent,
+    FooterComponent,
+    IframeComponent,
+    SafePipeComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,6 +30,7 @@ import { SafePipeComponent } from './safe-pipe/safe-pipe.component';
     MatToolbarModule,
     MatButtonModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

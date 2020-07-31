@@ -18,6 +18,8 @@ export class IframeComponent implements OnInit, AfterViewInit {
   site_url: string;
   available;
   message = '';
+  sideIcon = false;
+  spinner = true;
 
   constructor(
     private routes: ActivatedRoute,
@@ -37,13 +39,14 @@ export class IframeComponent implements OnInit, AfterViewInit {
       this.open = true;
       this.mod = 'side';
       this.menue = false;
+      this.sideIcon = false;
       console.log(this.mq.matches);
     } else {
       console.log(this.mq.matches);
       this.open = false;
       this.mod = 'over';
       this.menue = true;
-
+      this.sideIcon = true;
       // window width is less than 500px
     }
     this.routes.paramMap.subscribe((paraMaps: ParamMap) => {
@@ -56,11 +59,13 @@ export class IframeComponent implements OnInit, AfterViewInit {
           if (typeof result === 'string') {
             this.available = false;
             this.message = 'Data Not Available';
+            this.spinner = false;
           } else {
             this.available = true;
             this.urls = result;
             console.log('inside if');
             this.setUrl();
+            this.spinner = false;
           }
         });
       }
@@ -72,5 +77,8 @@ export class IframeComponent implements OnInit, AfterViewInit {
   }
   onClick(url: string) {
     this.site_url = url;
+    if (!this.mq.matches) {
+      this.open = false;
+    }
   }
 }
