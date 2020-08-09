@@ -1,3 +1,50 @@
+::ng-deep *:focus {
+  // outline: none !important;
+  overflow: hidden;
+}
+::ng-deep a.carousel-control-prev,
+a.carousel-control-prev:hover {
+  left: -7% !important;
+}
+::ng-deep .carousel-control-next,
+.carousel-control-next:hover {
+  right: -2% !important;
+}
+::ng-deep .carousel-control-prev-icon,
+.carousel-control-prev:hover {
+  margin-left: 35px !important;
+}
+::ng-deep .carousel-control-next-icon,
+.carousel-control-next:hover {
+  margin-right: -35px !important;
+}
+slide {
+  margin: 5px;
+}
+
+element.style {
+  display: flex;
+}
+::ng-deep .carousel-inner {
+  width: 95%;
+  align-self: center;
+  height: 115px;
+  outline: none !important;
+  border: none;
+}
+::ng-deep .carousel-inner:focus {
+  outline: none !important;
+  border: none;
+}
+.carousel-caption {
+  position: relative;
+  text-align: center;
+  padding: 15px 0 0 0;
+  bottom: 0;
+}
+.carousel-caption img {
+  border-radius: 25%;
+}
 #my-iframe {
   // position: absolute;
   height: 100vh;
@@ -6,6 +53,20 @@
   //   margin-bottom: 200px;
   overflow: hidden;
   //   padding-bottom: -100px;
+}
+.containerDiv {
+  margin-top: -15px;
+  width: 100%;
+}
+.over {
+  position: absolute;
+  z-index: 2;
+  margin-top: -150px;
+  width: 96%;
+  background-color: rgb(0, 0, 0, 0.6);
+  height: 108px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 nav img {
   height: 50px;
@@ -51,5 +112,13 @@ mat-sidenav img {
   }
   li {
     font-size: medium;
+  }
+  .over {
+    margin-top: -150px;
+    height: 70px;
+  }
+  .containerDiv {
+    margin-top: -20px;
+    width: 100%;
   }
 }

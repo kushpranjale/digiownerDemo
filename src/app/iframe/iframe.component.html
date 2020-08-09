@@ -73,6 +73,46 @@
           [src]="site_url | safe_url"
           id="my-iframe"
         ></iframe>
+        <div class="over">
+          <div class="containerDiv">
+            <carousel
+              [itemsPerSlide]="itemsPerSlide"
+              [singleSlideOffset]="singleSlideOffset"
+              [showIndicators]="false"
+              [noWrap]="!noWrap"
+              [interval]="false"
+              [startFromIndex]="0"
+              (slideRangeChange)="onSlideRangeChange($event)"
+            >
+              <slide *ngFor="let slide of urls; let index = index">
+                <div
+                  class="carousel-caption"
+                  (click)="onClick(slide.site_url, slide.site_area)"
+                >
+                  <img
+                    src="../../assets/gate_tn.jpg"
+                    style="width: 70px; height: 70px;"
+                  />
+                  <div
+                    *ngIf="
+                      selected == slide.site_area;
+                      then thenBlock;
+                      else elseBlock
+                    "
+                  ></div>
+                  <ng-template #thenBlock>
+                    <p style="color: #007b5e;">{{ slide.site_area }}</p>
+                  </ng-template>
+                  <ng-template #elseBlock>
+                    <p>
+                      {{ slide.site_area }}
+                    </p></ng-template
+                  >
+                </div>
+              </slide>
+            </carousel>
+          </div>
+        </div>
       </div>
     </mat-sidenav-content> </mat-sidenav-container
   ><app-footer></app-footer>

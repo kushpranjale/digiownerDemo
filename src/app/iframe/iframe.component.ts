@@ -14,12 +14,94 @@ export class IframeComponent implements OnInit, AfterViewInit {
   id: string;
   mq = window.matchMedia('(min-width: 800px)');
   menue: boolean;
+  selected = '';
   urls: {};
   site_url: string;
   available;
   message = '';
   sideIcon = false;
   spinner = true;
+  itemsPerSlide = 10;
+  singleSlideOffset = false;
+  noWrap = true;
+
+  slidesChangeMessage = '';
+
+  slides = [
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/2.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/3.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/4.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/5.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/6.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/7.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/8.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/2.jpg',
+    },
+    ,
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/3.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/4.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/5.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/6.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/7.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/8.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg',
+    },
+    {
+      image:
+        'https://valor-software.com/ngx-bootstrap/assets/images/nature/2.jpg',
+    },
+  ];
+
+  onSlideRangeChange(indexes: number[]): void {
+    this.slidesChangeMessage = `Slides have been switched: ${indexes}`;
+  }
 
   constructor(
     private routes: ActivatedRoute,
@@ -36,7 +118,7 @@ export class IframeComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     if (this.mq.matches) {
-      this.open = true;
+      this.open = false;
       this.mod = 'side';
       this.menue = false;
       this.sideIcon = false;
@@ -47,6 +129,7 @@ export class IframeComponent implements OnInit, AfterViewInit {
       this.mod = 'over';
       this.menue = true;
       this.sideIcon = true;
+      this.itemsPerSlide = 3;
       // window width is less than 500px
     }
     this.routes.paramMap.subscribe((paraMaps: ParamMap) => {
@@ -74,9 +157,11 @@ export class IframeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {}
   setUrl() {
     this.site_url = this.urls[0].site_url;
+    this.selected = this.urls[0].site_area;
   }
-  onClick(url: string) {
+  onClick(url: string, area: string) {
     this.site_url = url;
+    this.selected = area;
     if (!this.mq.matches) {
       this.open = false;
     }

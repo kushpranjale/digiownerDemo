@@ -13,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { SafePipeComponent } from './safe-pipe/safe-pipe.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+// import { IFrameResizerDirective } from './iframe-resizer-directive/iframe-resizer-directive.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FooterComponent,
     IframeComponent,
     SafePipeComponent,
+    // IFrameResizerDirective,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatButtonModule,
     HttpClientModule,
     MatProgressSpinnerModule,
+    CarouselModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
